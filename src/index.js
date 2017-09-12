@@ -1,8 +1,14 @@
 // Sorry for unreadable code :c
-
-const countDeviders = require('./countDeviders');
-
 const factorialSign = "!";
+
+var countDeviders = function(number, devider) {
+	var result = 0;
+	while(number % devider === 0) {
+		result ++;
+		number = number/devider;
+	}
+	return result;
+}
 
 module.exports = function zeros(expression) {
   var number = "";
@@ -14,7 +20,6 @@ module.exports = function zeros(expression) {
       it ++;
       number = parseInt(number);
       var result = { countTwos: 0, countFives: 0};
-      // doubleFactorial
       if (expression[it] === factorialSign) {
         it ++;
         for(var i = 0; i <= Math.ceil((number / 2) - 1); i++) {
